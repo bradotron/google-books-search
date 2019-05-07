@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/express-backend', function(req, res, next) {
+  res.send({
+    express: "YOUR BACK END IS CONNECTED...AND HOT"
+  });
 });
 
 module.exports = router;
