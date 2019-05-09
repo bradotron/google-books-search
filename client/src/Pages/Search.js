@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from '../Components/SearchForm';
-import BooksDisplay from '../Components/BooksDisplay';
+import Book from '../Components/Book';
 
 class Search extends Component {
 	state = {
@@ -39,7 +39,11 @@ class Search extends Component {
 			<div>
 				<h1>This is the Search Page</h1>
 				<SearchForm sendSearchUp={this.getSearch} />
-        <BooksDisplay />
+        {this.state.results.map(book => {
+					return (
+						<Book title={book.volumeInfo.title} />
+					)
+				})}
 			</div>
 		);
 	}
