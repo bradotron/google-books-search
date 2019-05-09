@@ -34,14 +34,28 @@ class Search extends Component {
 			});
 	};
 
+	saveBook = i => {
+		console.log(this.state.results[i]);
+	}
+
 	render() {
 		return (
 			<div>
 				<h1>This is the Search Page</h1>
 				<SearchForm sendSearchUp={this.getSearch} />
-        {this.state.results.map(book => {
+        {this.state.results.map((book, index) => {
 					return (
-						<Book title={book.volumeInfo.title} />
+						<Book 
+						key={index}
+						index={index}
+						title={book.volumeInfo.title ? book.volumeInfo.title : "N/A"} 
+						authors={book.volumeInfo.authors ? book.volumeInfo.authors : "N/A"}
+						description={book.volumeInfo.description ? book.volumeInfo.description : "N/A"}
+						thumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "No Image"}
+						smallThumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : "No Image"}
+						infoLink={book.volumeInfo.infoLink ? book.volumeInfo.infoLink : "N/A"}
+						sendSaveUp={this.saveBook}
+						/>
 					)
 				})}
 			</div>
