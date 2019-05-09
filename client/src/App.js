@@ -21,7 +21,7 @@ function App() {
 						<Link to="/saved">Saved</Link>
 					</li>
 				</ul>
-				<h1>Hello, World</h1>
+				<hr />
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/search" component={Search} />
