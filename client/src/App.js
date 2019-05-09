@@ -5,8 +5,6 @@ import Home from './Pages/Home';
 import Search from './Pages/Search';
 import Saved from './Pages/Saved';
 import NoMatch from './Pages/NoMatch';
-import HookExample from './HookExample';
-import ExpressTest from './ExpressTest';
 
 function App() {
 	return (
@@ -24,8 +22,6 @@ function App() {
 					</li>
 				</ul>
 				<h1>Hello, World</h1>
-				<HookExample />
-				<ExpressTest />
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/search" component={Search} />
