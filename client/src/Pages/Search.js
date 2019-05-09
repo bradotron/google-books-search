@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from '../Components/SearchForm';
+import BooksDisplay from '../Components/BooksDisplay';
 
 class Search extends Component {
 	state = {
@@ -38,6 +39,7 @@ class Search extends Component {
 			<div>
 				<h1>This is the Search Page</h1>
 				<SearchForm sendSearchUp={this.getSearch} />
+        <BooksDisplay />
 			</div>
 		);
 	}
