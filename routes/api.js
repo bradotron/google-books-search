@@ -8,4 +8,11 @@ router.get('/books', function(req, res, next) {
   });
 });
 
+router.post('/books', function(req, res, next) {
+  console.log(req.data);
+  res.send({
+    express: "You've tried to save a book",
+  });
+})
+
 module.exports = router;

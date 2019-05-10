@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from '../Components/SearchForm';
 import Book from '../Components/Book';
+import myBooksApi from '../utils/myBooksApi'
 
 class Search extends Component {
 	state = {
@@ -36,8 +37,13 @@ class Search extends Component {
 
 	handleSaveBook = e => {
     e.preventDefault();
-    console.log("save me a book");
-    console.log(e.target.getAttribute('id'));
+    const id = e.target.getAttribute('id');
+    // find the index of the book
+    const saveBook = this.state.results.filter(book => book.id === id);
+
+    myBooksApi.postBook(saveBook).then(res => {
+      console.log(res);
+    });
 	}
 
 	render() {
