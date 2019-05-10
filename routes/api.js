@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/express-backend', function(req, res, next) {
+router.get('/books', function(req, res, next) {
   res.send({
-    express: "YOUR BACK END IS CONNECTED...AND HOT"
+    express: "This is the GET route for /api/books"
   });
 });
 
