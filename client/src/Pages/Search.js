@@ -34,8 +34,10 @@ class Search extends Component {
 			});
 	};
 
-	saveBook = i => {
-		console.log(this.state.results[i]);
+	handleSaveBook = e => {
+    e.preventDefault();
+    console.log("save me a book");
+    console.log(e.target.getAttribute('id'));
 	}
 
 	render() {
@@ -43,18 +45,18 @@ class Search extends Component {
 			<div>
 				<h1>This is the Search Page</h1>
 				<SearchForm sendSearchUp={this.getSearch} />
-        {this.state.results.map((book, index) => {
+        {this.state.results.map((book) => {
 					return (
 						<Book 
-						key={index}
-						index={index}
+            key={book.id}
+            id={book.id}
 						title={book.volumeInfo.title ? book.volumeInfo.title : "N/A"} 
 						authors={book.volumeInfo.authors ? book.volumeInfo.authors : "N/A"}
 						description={book.volumeInfo.description ? book.volumeInfo.description : "N/A"}
 						thumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "No Image"}
 						smallThumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : "No Image"}
 						infoLink={book.volumeInfo.infoLink ? book.volumeInfo.infoLink : "N/A"}
-						sendSaveUp={this.saveBook}
+						handleSaveBook={this.handleSaveBook}
 						/>
 					)
 				})}
