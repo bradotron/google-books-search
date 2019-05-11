@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var path = require('path');
 var logger = require('morgan');
 var apiRouter = require('./routes/api');
 
@@ -10,6 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', apiRouter);
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
