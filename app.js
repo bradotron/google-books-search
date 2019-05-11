@@ -12,10 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', apiRouter);
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 // catch 404 and forward to error handler
