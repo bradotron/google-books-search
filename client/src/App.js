@@ -8,6 +8,7 @@ import NoMatch from './Pages/NoMatch';
 
 function App() {
 	return (
+		<div className="container">
 		<Router>
 			<div>
 				<ul>
@@ -23,13 +24,14 @@ function App() {
 				</ul>
 				<hr />
 				<Switch>
-					<Route exact path="/" component={Home} />
+					<Route exact path="/" component={Search} />
 					<Route path="/search" component={Search} />
 					<Route path="/saved" component={Saved} />
 					<Route component={NoMatch} />
 				</Switch>
 			</div>
 		</Router>
+		</div>
 	);
 }
 

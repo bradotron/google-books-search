@@ -29,17 +29,21 @@ class SearchForm extends Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Google Book Search</h1>
-				<form>
-					<label>
-						Search:
-						<input type="text" name="search" value={this.state.search} onChange={this.onInputChange} />
-					</label>
-					<button onClick={this.onFormSubmit} type="submit">
-						Search
-					</button>
-				</form>
+			<div className="jumbotron">
+				<div className="row justify-content-center">
+					<h2>Google Book Search</h2>
+				</div>
+				<div className="row justify-content-center align-items-center">
+					<form>
+						<label className="my-0">
+							Search:
+							<input type="text" name="search" value={this.state.search} onChange={this.onInputChange} />
+						</label>
+						<button className="btn btn-sm btn-primary" onClick={this.onFormSubmit} type="submit">
+							Search
+						</button>
+					</form>
+				</div>
 			</div>
 		);
 	}
