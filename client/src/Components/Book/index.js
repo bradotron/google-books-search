@@ -21,15 +21,20 @@ function Book(props) {
 						: 'No Authors Listed'}
 				</ul>
 				<p>{props.description}</p>
-				<a className="mr-auto" href={props.infoLink} rel="noopener noreferrer" target="_blank">
-					More Info on Google Books
-				</a>
-				{props.source === "saved" ? <button className="btn btn-danger float-right" id={props.id} onClick={props.handleDeleteBook} >
-					Delete
-				</button> : <button className="btn btn-primary float-right" id={props.id} onClick={props.handleSaveBook}>
-					Save
-				</button>}
-				
+				<div className="row">
+					<a className="mr-auto" href={props.infoLink} rel="noopener noreferrer" target="_blank">
+						More Info on Google Books
+					</a>
+					{props.source === 'saved' ? (
+						<button className="btn btn-danger" id={props.id} onClick={props.handleDeleteBook}>
+							Delete
+						</button>
+					) : (
+						<button className="btn btn-primary" id={props.id} onClick={props.handleSaveBook}>
+							Save
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);
