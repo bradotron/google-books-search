@@ -156,7 +156,7 @@ var bookSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Article = mongoose.model('Book', bookSchema);
+var Book = mongoose.model('Book', bookSchema);
 
 // Export the Article model
 module.exports = Book;
