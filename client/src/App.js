@@ -8,7 +8,7 @@ import NoMatch from './Pages/NoMatch';
 
 function App() {
 	return (
-		<div classNameName="container">
+		<div className="container">
 			<Router>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 					<a className="navbar-brand" href="/">

@@ -42,7 +42,7 @@ class Search extends Component {
     const saveBook = this.state.results.filter(book => book.id === id);
 
     myBooksApi.postBook(saveBook).then(res => {
-      console.log("book saved");
+      alert(`Book has been saved.`)
     }).catch(err => {
 			console.log(err);
 		});
@@ -64,6 +64,7 @@ class Search extends Component {
 						smallThumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : "No Image"}
 						infoLink={book.volumeInfo.infoLink ? book.volumeInfo.infoLink : "N/A"}
 						handleSaveBook={this.handleSaveBook}
+						source="search"
 						/>
 					)
 				})}

@@ -8,8 +8,11 @@ class Saved extends Component {
 	};
 
 	componentDidMount() {
-		console.log('saved component loaded');
+		// console.log('saved component loaded');
+		this.loadSavedBooks();
+	}
 
+	loadSavedBooks() {
 		myBooksApi
 			.getBooks()
 			.then(res => {
@@ -21,6 +24,17 @@ class Saved extends Component {
 			.catch(err => {
 				console.log(err);
 			});
+	}
+
+	handleDeleteBook = e => {
+    e.preventDefault();
+    const id = e.target.getAttribute('id');
+
+    myBooksApi.deleteBook(id).then(res => {
+			this.loadSavedBooks();
+    }).catch(err => {
+			console.log(err);
+		});
 	}
 
 	render() {
@@ -42,6 +56,8 @@ class Saved extends Component {
 								book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'No Image'
 							}
 							infoLink={book.volumeInfo.infoLink ? book.volumeInfo.infoLink : 'N/A'}
+							handleDeleteBook={this.handleDeleteBook}
+							source="saved"
 						/>
 					);
 				})}

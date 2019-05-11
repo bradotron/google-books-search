@@ -39,6 +39,16 @@ router.post('/books', function(req, res, next) {
   }).catch(err => {
     res.json(err);
   });
-})
+});
+
+router.delete('/books/:id', function(req, res, next) {
+  db.Book.findOneAndDelete({
+    id: req.params.id
+  }).then(dbBook => {
+    res.json(dbBook);
+  }).catch(err => {
+    console.log(err);
+  });
+});
 
 module.exports = router;

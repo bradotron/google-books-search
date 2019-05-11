@@ -24,9 +24,12 @@ function Book(props) {
 				<a className="mr-auto" href={props.infoLink} rel="noopener noreferrer" target="_blank">
 					More Info on Google Books
 				</a>
-				<button className="btn btn-primary float-right" id={props.id} onClick={props.handleSaveBook}>
+				{props.source === "saved" ? <button className="btn btn-danger float-right" id={props.id} onClick={props.handleDeleteBook} >
+					Delete
+				</button> : <button className="btn btn-primary float-right" id={props.id} onClick={props.handleSaveBook}>
 					Save
-				</button>
+				</button>}
+				
 			</div>
 		</div>
 	);
