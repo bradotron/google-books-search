@@ -26,9 +26,11 @@ router.get('/books', function(req, res, next) {
 
 // POST route to 
 router.post('/books', function(req, res, next) {
-  console.log(req.data);
-  res.send({
-    express: "You've tried to save a book",
+  //console.log(req.body);
+  db.Book.create(req.body[0]).then(dbBook => {
+    res.json(dbBook);
+  }).catch(err => {
+    res.json(err);
   });
 })
 

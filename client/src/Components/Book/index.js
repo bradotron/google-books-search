@@ -11,9 +11,9 @@ function Book(props) {
 			<p>{props.title}</p>
 			<p>Author(s)</p>
 			<ul>
-				{props.authors.map((author, index) => {
+				{typeof props.authors === "object" ? (props.authors.map((author, index) => {
 					return <li key={index}>{author}</li>;
-				})}
+				})) : "No Authors Listed" }
 			</ul>
 			<p>{props.description}</p>
 			<a href={props.infoLink} rel="noopener noreferrer" target="_blank">
