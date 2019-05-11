@@ -19,9 +19,16 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, function(err, res) {
 
 // get route to return all books in the database
 router.get('/books', function(req, res, next) {
-  res.send({
-    express: "This is the GET route for /api/books"
-  });
+  // Grab every document in the books collection
+  db.Book.find({})
+    .then(function(dbBook) {
+      // If we were able to successfully find books, send them back to the client
+      res.json(dbBook);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
 });
 
 // POST route to 

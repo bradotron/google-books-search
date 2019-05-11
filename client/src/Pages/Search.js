@@ -42,8 +42,10 @@ class Search extends Component {
     const saveBook = this.state.results.filter(book => book.id === id);
 
     myBooksApi.postBook(saveBook).then(res => {
-      console.log(res);
-    });
+      console.log("book saved");
+    }).catch(err => {
+			console.log(err);
+		});
 	}
 
 	render() {
