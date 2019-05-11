@@ -8,29 +8,45 @@ import NoMatch from './Pages/NoMatch';
 
 function App() {
 	return (
-		<div className="container">
-		<Router>
-			<div>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/search">Search</Link>
-					</li>
-					<li>
-						<Link to="/saved">Saved</Link>
-					</li>
-				</ul>
-				<hr />
-				<Switch>
-					<Route exact path="/" component={Search} />
-					<Route path="/search" component={Search} />
-					<Route path="/saved" component={Saved} />
-					<Route component={NoMatch} />
-				</Switch>
-			</div>
-		</Router>
+		<div classNameName="container">
+			<Router>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<a className="navbar-brand" href="/">
+						Home
+					</a>
+					<button
+						className="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span className="navbar-toggler-icon" />
+					</button>
+					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul className="navbar-nav mr-auto">
+
+							<li className="nav-link">
+								<Link to="/search">Search</Link>
+							</li>
+							<li className="nav-link">
+								<Link to="/saved">Saved</Link>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div>
+					<hr />
+					<Switch>
+						<Route exact path="/" component={Search} />
+						<Route path="/search" component={Search} />
+						<Route path="/saved" component={Saved} />
+						<Route component={NoMatch} />
+					</Switch>
+				</div>
+			</Router>
 		</div>
 	);
 }

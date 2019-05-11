@@ -51,7 +51,6 @@ class Search extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Search for Books and Save them to your List</h1>
 				<SearchForm sendSearchUp={this.getSearch} />
         {this.state.results.map((book) => {
 					return (
